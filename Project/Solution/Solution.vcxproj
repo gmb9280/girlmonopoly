@@ -88,9 +88,13 @@ copy “$(OutDir)$(TargetName)$(TargetExt)” “$(SolutionDir)Binary”</Comman
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Card.cpp" />
+    <ClCompile Include="Deck.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Card.h" />
+    <ClInclude Include="Deck.h" />
     <ClInclude Include="Main.h" />
   </ItemGroup>
   <ItemGroup>
