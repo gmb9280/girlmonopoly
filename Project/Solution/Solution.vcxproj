@@ -138,6 +138,9 @@ copy “$(OutDir)$(TargetName)$(TargetExt)” “$(SolutionDir)Binary”</Comman
       <Command>mkdir “$(SolutionDir)Binary\”
 copy “$(OutDir)$(TargetName)$(TargetExt)” “$(SolutionDir)Binary”</Command>
     </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>glew32.lib;freeglut.lib</AdditionalDependencies>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <PostBuildEvent>
