@@ -6,6 +6,11 @@ All rights reserved.
 #define MAIN_CPP
 #include "Main.h"
 
+
+// This is for OpenGL
+void init(void){
+	glClearColor(1.0,1.0,1.0, 1.0); // Clears to a background color
+}
 int main()
 {
 	std::cout << "Cards in 3D! ... Soon\n";
