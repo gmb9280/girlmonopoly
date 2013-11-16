@@ -4,9 +4,7 @@
 #include "Deck.h"
 
 
-Deck::Deck(void)
-{
-}
+
 
 
 Deck::~Deck(void)

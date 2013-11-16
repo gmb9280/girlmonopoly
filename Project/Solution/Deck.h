@@ -7,36 +7,109 @@
 #define DECK_H
 
 #include "Card.h"
+#include "MyVector.h"
+#include "iostream"
+
 const int DEFAULT_SIZE = 52;
 class Deck
 {
-private: 
+	public:
+		// Default constructor: Make 52 cards:
+		Deck(void)
+		{
+			size =   DEFAULT_SIZE;
+
+			init();
+		};
+
+		// TODO: Parameterized constructor?
+
+		void init(){
+			// After we have the number of cards and such passed in, 
+			// create the cards for the deck.
+			
+			for(int i=0; i<4; i++)
+			{
+				for(int j = 0; j<(size/4); j++)
+				{
+					if(i==0)
+					{
+						cards.Push(Card(HEARTS,j+1));
+					}
+					if(i==1)
+					{
+						cards.Push(Card(CLUBS, j+1));
+					}
+					if(i==2)
+					{ 
+						cards.Push(Card(SPADES, j+1));
+					}
+					if(i==3)
+					{
+						cards.Push(Card(DIAMONDS, j+1));
+					}
+				}
+			}
+			std::cout<< "Deck created with " << size << " cards!" << std::endl;
+		};
+
+
+		~Deck(void);
+
+		// Shuffles the deck randomly
+		void shuffle(){
+			// At the beginning, make a new vector to be the temp container
+			MyVector<Card> temp;
+		
+		};
+
+		// Sorts the cards by suit. 
+		void sortBySuit();
+
+		// Sorts the cards by integer value. Pass in a templated struct?
+		void sortByNum();
+
+		// Adds a card to the top of the deck. 
+		void push();
+
+		// Takes the top card off of the deck. 
+		void pop();
+
+		// Returns how many cards are left in the deck. 
+		int getSize()
+		{
+			return size;
+		};
+
+		// Returns (but does not pop) the top card on the deck. Think "peek"
+		Card getTop()
+		{
+			return cards.getTop();
+		};
+
+		// For testing purposes:
+		void print(){
+			std::cout <<"DECK, size: " << getSize() << std::endl;
+			for(int i = 0; i<size; i++)
+			{
+				std::cout<< cards[i] << std::endl;
+			}
+		};
+
+		friend ostream& operator<<(ostream &out, Deck &deck_)
+		{
+			for(int i=0; i<deck_.getSize(); i++)
+			{
+				out << "[ " << deck_.cards[i] << " ]" << std::endl;
+				
+			}
+			return out;
+		};
+
+	private: 
 	
-	int numCards;
-public:
-	Deck(void);
-	~Deck(void);
-
-	// Shuffles the deck randomly
-	void shuffle();
-
-	// Sorts the cards by suit. 
-	void sortBySuit();
-
-	// Sorts the cards by integer value. Pass in a templated struct?
-	void sortByNum();
-
-	// Adds a card to the top of the deck. 
-	void push();
-
-	// Takes the top card off of the deck. 
-	void pop();
-
-	// Returns how many cards are left in the deck. 
-	void getSize();
-
-	// Returns (but does not pop) the top card on the deck. Think "peek"
-	Card getTop();
+		int size;
+		MyVector<Card> cards;
 
 };
 

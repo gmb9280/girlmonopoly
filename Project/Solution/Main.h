@@ -6,6 +6,6 @@ All rights reserved.
 #define MAIN_H
 
 #include <iostream>
-#include <GL>
+
 
 #endif MAIN_H

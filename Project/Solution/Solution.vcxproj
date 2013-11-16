@@ -96,6 +96,7 @@ copy “$(OutDir)$(TargetName)$(TargetExt)” “$(SolutionDir)Binary”</Comman
     <ClInclude Include="Card.h" />
     <ClInclude Include="Deck.h" />
     <ClInclude Include="Main.h" />
+    <ClInclude Include="MyVector.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="..\res\ICON.rc" />
