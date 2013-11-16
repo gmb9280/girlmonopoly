@@ -7,7 +7,5 @@
 
 
 
-Deck::~Deck(void)
-{
-}
+
 #endif

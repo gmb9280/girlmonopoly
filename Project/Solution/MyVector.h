@@ -2,6 +2,7 @@
 #define MYVECTOR_H
 #include <iostream>
 #include <cassert> // for assert()
+#include <random>
 
 template<typename T>
 class MyVector
@@ -62,6 +63,15 @@ public:
 		m_pData[GetSize()-2] = temp;
 		
 	}
+
+	// Finds a random value within, removes it, and returns it
+	T retrieveRandom(void)
+	{
+		// Using the size, find a random value to pull
+		int randomNum = rand() % GetSize() -1;
+		return m_pData[randomNum];
+		
+	};
 
 	// Pop data out of the vector
 	void Pop(void)

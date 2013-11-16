@@ -27,9 +27,9 @@ int main()
 
 	std::cout<< endl << endl << "Peeking: " ;
 	myDeck.getTop().Print();
-
-
-
+	
+	std::cout<< endl << "Getting random card: " << endl;
+	myDeck.getRandom();
 
 
 

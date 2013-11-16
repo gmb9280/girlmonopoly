@@ -54,13 +54,20 @@ class Deck
 		};
 
 
-		~Deck(void);
+		~Deck(void)
+		{
+			// Delete allocated memory etc etc : ( 
+		};
 
 		// Shuffles the deck randomly
 		void shuffle(){
 			// At the beginning, make a new vector to be the temp container
 			MyVector<Card> temp;
 		
+		};
+
+		void getRandom(){
+			std::cout << cards.retrieveRandom();
 		};
 
 		// Sorts the cards by suit. 
