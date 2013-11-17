@@ -63,12 +63,18 @@ class Deck
 		void shuffle(){
 			// At the beginning, make a new vector to be the temp container
 			MyVector<Card> temp;
-		
+			
+			for(int i=size; i>0; i--)
+			{
+				temp.Push(cards.retrieveRandom(i));
+			}
+			std::cout<< "Size of your newly shuffled deck: " << temp.GetSize() << endl;
+			this->cards = temp;
+			
+			// TODO: delete temp
+
 		};
 
-		void getRandom(){
-			std::cout << cards.retrieveRandom();
-		};
 
 		// Sorts the cards by suit. 
 		void sortBySuit();

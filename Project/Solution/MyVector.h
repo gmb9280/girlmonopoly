@@ -65,12 +65,40 @@ public:
 	}
 
 	// Finds a random value within, removes it, and returns it
-	T retrieveRandom(void)
+	T retrieveRandom(int num)
 	{
+		MyVector<T> temporal = MyVector<T>();
+		int temporalSize = 0;
+
+		T temporary;
+		int randomNum;
+
 		// Using the size, find a random value to pull
-		int randomNum = rand() % GetSize() -1;
-		return m_pData[randomNum];
-		
+		if(num !=0){
+			randomNum = rand() % num +1;
+		}
+		else { randomNum = 0;}
+
+
+		// Now we need to get at that number in the vector: 
+		// pop things off and back on to temporal
+		for(int i=GetSize(); i>randomNum; i--)
+		{
+			temporal.Push(getTop()); temporalSize++;
+			Pop();
+		}
+		// Now put temporal back onto the MyVector
+		temporary = getTop();
+
+		Pop();
+
+
+		for(int i=temporalSize; i>=0; i--)
+		{
+			Push(temporal.getTop()); 
+			temporal.Pop(); temporalSize--;
+		}
+		return temporary;
 	};
 
 	// Pop data out of the vector
