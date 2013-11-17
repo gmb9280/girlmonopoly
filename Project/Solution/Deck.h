@@ -14,72 +14,26 @@ const int DEFAULT_SIZE = 52;
 class Deck
 {
 	public:
-		// Default constructor: Make 52 cards:
-		Deck(void)
-		{
-			size =   DEFAULT_SIZE;
-
-			init();
-		};
-
+		//
 		// TODO: Parameterized constructor?
+		//
 
-		void init(){
-			// After we have the number of cards and such passed in, 
-			// create the cards for the deck.
-			
-			for(int i=0; i<4; i++)
-			{
-				for(int j = 0; j<(size/4); j++)
-				{
-					if(i==0)
-					{
-						cards.Push(Card(HEARTS,j+1));
-					}
-					if(i==1)
-					{
-						cards.Push(Card(CLUBS, j+1));
-					}
-					if(i==2)
-					{ 
-						cards.Push(Card(SPADES, j+1));
-					}
-					if(i==3)
-					{
-						cards.Push(Card(DIAMONDS, j+1));
-					}
-				}
-			}
-			std::cout<< "Deck created with " << size << " cards!" << std::endl;
-		};
+		// Default constructor: Make 52 cards.
+		Deck(void);
 
+		void init();
 
-		~Deck(void)
-		{
-			// Delete allocated memory etc etc : ( 
-		};
+		~Deck(void);
 
 		// Shuffles the deck randomly
-		void shuffle(){
-			// At the beginning, make a new vector to be the temp container
-			MyVector<Card> temp;
-			
-			for(int i=size; i>0; i--)
-			{
-				temp.Push(cards.retrieveRandom(i));
-			}
-			std::cout<< "Size of your newly shuffled deck: " << temp.GetSize() << endl;
-			this->cards = temp;
-			
-			// TODO: delete temp
-
-		};
-
+		void shuffle();
 
 		// Sorts the cards by suit. 
+		// Eg: hearts 1-13, clubs 1-13, spades 1-13, diamonds 1-13.
 		void sortBySuit();
 
 		// Sorts the cards by integer value. Pass in a templated struct?
+		// Eg: 1 of hearts, 1 of clubs, 1 of spades, 1 of diamonds, 2 of hearts...
 		void sortByNum();
 
 		// Adds a card to the top of the deck. 
@@ -89,10 +43,7 @@ class Deck
 		void pop();
 
 		// Returns how many cards are left in the deck. 
-		int getSize()
-		{
-			return size;
-		};
+		int getSize();
 
 		// Returns (but does not pop) the top card on the deck. Think "peek"
 		Card getTop()
@@ -101,14 +52,10 @@ class Deck
 		};
 
 		// For testing purposes:
-		void print(){
-			std::cout <<"DECK, size: " << getSize() << std::endl;
-			for(int i = 0; i<size; i++)
-			{
-				std::cout<< cards[i] << std::endl;
-			}
-		};
+		void print();
 
+		// Friend operator which allows you to cout a Deck object. 
+		// Must stay in the .h file.
 		friend ostream& operator<<(ostream &out, Deck &deck_)
 		{
 			for(int i=0; i<deck_.getSize(); i++)
