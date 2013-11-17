@@ -14,46 +14,27 @@ class Card
 private: 
 	suit suitType;
 	int value;
+
 public:
 	// Default card constructor -- I'm sure there can be something here, maybe a joker?
-	Card(void)
-	{
-			value = 2;
-			suitType = SPADES;
-	};
+	Card(void);
 
 	// Construct with a suit type and a value 1-13. Make sure to check if valid and throw an error if it isn't.
-	Card(suit suit_, int value_){
-		value = value_;
-		suitType = suit_;
-	};
+	Card(suit suit_, int value_);
 
 	// Destructor.
 	~Card(void);
 
 	// Return the value
-	int getValue(){
-		return value;
-	};
+	int getValue();
 
-	const char* getSuit(){
-		switch(suitType){
-			case 0:
-				return "Hearts"; break;
-			case 1:
-				return "Spades"; break;
-			case 2: 
-				return "Clubs"; break;
-			case 3: 
-				return "Diamonds"; break;
-		}
-	}
+	const char* getSuit();
+
 	// Print
-	void Print()
-	{
-		std::cout<< getValue() << " of " << getSuit() << std::endl;
-	}
+	void Print();
 
+	// Friend operator override which allows you to print a card object.
+	// It must remain in the .h
 	friend ostream& operator<<(ostream &out, Card &card_){
 		out << card_.getValue() << " of " << card_.getSuit() ;
 		return out;
